@@ -20,6 +20,20 @@
  * @param {ListNode} l2
  * @return {ListNode}
  */
- var addTwoNumbers = function(l1, l2) {
-     let l1Temp = l1.val, l2Temp = l2.val;
+ let addTwoNumbers = (l1, l2)=>{
+     let ll = l3 = {val:0, next:null}, overflowNum=0;
+     while(!!l1 || !!l2){
+         let val1 = !!l1 ? l1.val : 0;
+         let val2 = !!l2 ? l2.val : 0;
+         let sumTemp = val1 + val2 + overflowNum;
+         overflowNum = sumTemp >= 10  ? 1 : 0;
+         l3.next = {val:sumTemp%10, next:null};
+         l3 = l3.next;
+         if(!!l1)l1 = l1.next;
+         if(!!l2)l2 = l2.next;
+     }
+     if(overflowNum > 0){
+         l3.next = {val:overflowNum, next:null};
+     }
+     return ll.next;
  }
