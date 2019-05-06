@@ -11,8 +11,6 @@
  * @param {number} target
  * @return {number[]}
  */
-// 0.22 seconds
-var nums = [3,2,4], target = 6;
 var twoSum = function(nums, target) {
     for(let i = 0; nums.length > i; i++){
         let val = nums[i];
@@ -24,7 +22,7 @@ var twoSum = function(nums, target) {
     }
     return []
 };
-//test
+//test push github
 var twoSum1 = function(nums, target) {
     var copyNums = [...nums];
     for(var i=0; i<nums.length; i++){
@@ -35,4 +33,14 @@ var twoSum1 = function(nums, target) {
         }
     }
 };
+//Wit from netizens
+var twoSum = function(nums, target) {
+    const map = {};
+    for (let i = 0; i < nums.length - 1; i++) {
+        map[target-nums[i]] = i;
+        console.log(map);
+        if (nums[i+1] in map) return [map[nums[i+1]], i+1];
+    }
+}
+var nums = [2, 7, 11, 15], target = 9;//nums = [3,2,4], target = 6;
 console.log(twoSum(nums, target));
