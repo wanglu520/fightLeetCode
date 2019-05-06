@@ -11,23 +11,28 @@
  * @param {number} target
  * @return {number[]}
  */
-var nums = [2, 7, 11, 15], target = 9;
+// 0.22 seconds
+var nums = [3,2,4], target = 6;
 var twoSum = function(nums, target) {
-    let arr=[];
     for(let i = 0; nums.length > i; i++){
         let val = nums[i];
+        nums.splice(i,1,"seat");
         let index = nums.indexOf(target - val);
         if(index > -1){
-            if(index !== i){
-                arr = [i, index];
-                break
-            }else{
-                if(nums.indexOf(target - val, index+1) > -1){
-                    arr = [i,nums.indexOf(target - val, index+1)];
-                }
-            }
+            return [i, index];
         }
     }
-    return arr
+    return []
+};
+//test
+var twoSum1 = function(nums, target) {
+    var copyNums = [...nums];
+    for(var i=0; i<nums.length; i++){
+        copyNums.splice(i,1,"seat");
+        var findIndex = copyNums.findIndex((val)=>val === (target - nums[i]));
+        if(findIndex > -1){
+            return [i,findIndex];
+        }
+    }
 };
 console.log(twoSum(nums, target));
