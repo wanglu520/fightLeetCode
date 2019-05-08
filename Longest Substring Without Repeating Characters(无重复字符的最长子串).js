@@ -24,14 +24,14 @@ let lengthOfLongestSubstring = (s)=> {
     let tmpStrs = "", maxlength = 0;
     for(let i=0; i < s.length; i++){
         let tmpStr = s.charAt(i);
-        if(tmpArr.indexOf(tmpStr) === -1){
+        if(tmpStrs.indexOf(tmpStr) === -1){
             tmpStrs += tmpStr;
         }else{
-            maxlength = tmpArr.length > maxlength ? tmpArr.length : maxlength;
-            tmpStrs = tmpStrs.slice(tmpArr.indexOf(tmpStr)+1) + tmpStr;
+            maxlength = tmpStrs.length > maxlength ? tmpStrs.length : maxlength;
+            tmpStrs = tmpStrs.slice(tmpStrs.indexOf(tmpStr)+1) + tmpStr;
         }
     }
-    return tmpArr.length > maxlength ? tmpArr.length : maxlength;
+    return tmpStrs.length > maxlength ? tmpStrs.length : maxlength;
 }
 // var lengthOfLongestSubstring = function(s) {
 //     var arr = s.split("");
