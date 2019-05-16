@@ -27,6 +27,10 @@ let longestPalindrome = (s)=> {
     }
     return maxStr;
 };
+/**
+ * @param {String} s 
+ * Manacher 算法
+ */
 let longestPalindrome = function (s) {
     if (s.length == 1) {
        return s
@@ -37,6 +41,7 @@ let longestPalindrome = function (s) {
     let pos = 0
     let ml = 0
     for (let i = 0; i < str.length; i++){
+        console.log(`rl:${JSON.stringify(rl)}, mx:${mx}, pos:${pos}, ml:${ml}`);
         if (i < mx) {
             rl[i] = Math.min(rl[2 * pos - i], mx - i)
         } else {
@@ -56,3 +61,39 @@ let longestPalindrome = function (s) {
     }
     return sub.split('#').join('').trim()
 }
+longestPalindrome("babad");
+/**
+ * @param {String} s 
+ * @returns {String}
+ * 中心扩展算法
+ */
+let longestPalindrome = function(s){
+    if(s === null || s.length < 1){return ""}
+    let start = 0, end = 0;
+    for(let i = 0; i < s.length; i++){
+        let len1 = expandAroundCenter(s, i, i);
+        let len2 = expandAroundCenter(s, i, i+1);
+        let len = Math.max(len1, len2);
+        if(len > (end - start)){
+            start = i - ((len -1) / 2 |0);
+            end = i + (len / 2 | 0);
+            console.log(i, len, start, end);
+        }
+    }
+    return s.slice(start, end+1);
+};
+/**
+ * @param {String} s
+ * @param {String} left
+ * @param {String} right
+ * @returns {String} 
+ */
+let expandAroundCenter = function(s, left, right){
+    let len = s.length;
+    while(left >= 0 && right < len && s[left] === s[right]){
+        left--;
+        right++;
+    }
+    return right - left - 1;
+};
+console.log(longestPalindrome("cbbd"));
