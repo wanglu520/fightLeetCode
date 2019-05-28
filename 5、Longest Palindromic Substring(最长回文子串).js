@@ -33,33 +33,33 @@ let longestPalindrome = (s)=> {
  */
 let longestPalindrome = function (s) {
     if (s.length == 1) {
-       return s
+       return s;
     }
-    let str = '#' + s.split('').join('#') + '#'
-    let rl = []
-    let mx = 0
-    let pos = 0
-    let ml = 0
+    let str = '#' + s.split('').join('#') + '#';
+    let rl = [];
+    let mx = 0;
+    let pos = 0;
+    let ml = 0;
     for (let i = 0; i < str.length; i++){
         console.log(`rl:${JSON.stringify(rl)}, mx:${mx}, pos:${pos}, ml:${ml}`);
         if (i < mx) {
-            rl[i] = Math.min(rl[2 * pos - i], mx - i)
+            rl[i] = Math.min(rl[2 * pos - i], mx - i);
         } else {
-            rl[i] = 1
+            rl[i] = 1;
         }
         while (i - rl[i] > 0 && i + rl[i] < str.length && str[i - rl[i]] == str[i + rl[i]]) {
-            rl[i]++
+            rl[i]++;
         }
         if (rl[i] + i - 1 > mx) {
-            mx = rl[i] + i - 1
-            pos = i
+            mx = rl[i] + i - 1;
+            pos = i;
         }
         if (ml < rl[i]) {
-            ml = rl[i]
-            sub = str.substring(i - rl[i]+1, i + rl[i])
+            ml = rl[i];
+            sub = str.substring(i - rl[i]+1, i + rl[i]);
         }
     }
-    return sub.split('#').join('').trim()
+    return sub.split('#').join('').trim();
 }
 longestPalindrome("babad");
 /**

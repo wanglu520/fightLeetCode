@@ -24,6 +24,19 @@ T     S     G
  * @param {number} numRows 
  * @returns {String}
  */
+let convert = function(s, numRows){
+    if(numRows === 1){return s}
+    let rows = Math.min(s.length, numRows);
+    let arr = [], goingDown = false, currentRows = 0;
+    for(let i = 0; i < rows; i++){arr.push([])}
+    for(let j = 0; j < s.length; j++){
+        arr[currentRows].push(s[j]);
+        if(currentRows === 0 || currentRows === rows-1){goingDown = !goingDown}
+        currentRows += goingDown ? 1 : -1;
+    }
+    return [].concat(...arr).join("");
+};
+console.log(convert("LEETCODEISHIRING", 4)  === "LDREOEIIECIHNTSG");
 let convert = function(s, numRows) {
     let addNum = 2 * numRows - 2, str="";
     if(numRows === 1){return s}
