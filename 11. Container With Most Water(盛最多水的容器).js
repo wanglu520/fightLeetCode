@@ -17,10 +17,10 @@ let maxArea = (height)=>{
     while(start < end){
         let area = len * Math.min(height[start], height[end]);
         maxArea = area > maxArea ? area : maxArea;
-        start > end ? end-- : start++;
+        height[start] > height[end] ? end-- : start++;
         len--;
     }
     return maxArea;
 }
-let height = [1,8,6,2,5,4,8,3,7];
+let height = [2,3,4,5,18,17,6];
 console.log(maxArea(height));
