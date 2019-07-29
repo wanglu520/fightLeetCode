@@ -28,13 +28,29 @@
  * @return {number[][]}
  */
 let fourSum = function(nums, target) {
+    let res = [];
     nums.sort((a, b)=>a-b);
     const len = nums.length - 1;
     for(let i = 0; i <= len -2;){
-        let midLe = i+1, mdiRi = len-1, end=len;
+        let end=len;
+        while((i+2) < end){
+            let midLe = i+1, mdiRi = end-1;
+            while(midLe < mdiRi){
+                let sum = nums[i] + nums[midLe] + nums[mdiRi] + nums[end];
+                if(sum === target){
+                    res.push([nums[i], nums[midLe], nums[mdiRi], nums[end]]);
+                    while(nums[mdiRi] === nums[--mdiRi]){}
+                }else if(sum > target){
+                    while(nums[mdiRi] === nums[--mdiRi]){}
+                }else{
+                    while(nums[midLe] === nums[++midLe]){}
+                }
+            }
+            while(nums[end] === nums[--end]){}
+        }
+        while(nums[i] === nums[++i]){}
     }
-
+    return res;
 };
-
-let nums = [1, 0, -1, 0, -2, 2];//[ -2, -1, 0, 0, 1, 2 ]
-console.log(nums.sort((a,b)=>a-b));
+let nums = [-3,-2,-1,0,0,1,2,3];//[-3,-1,0,2,4,5];//[1, 0, -1, 0, -2, 2];//[ -2, -1, 0, 0, 1, 2 ]
+console.log(fourSum(nums, 0));
