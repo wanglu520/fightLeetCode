@@ -28,22 +28,21 @@ Could you do this in one pass?
  * @param {number} n
  * @return {ListNode}
  */
+let ListNode = {
+    next : null
+};
 let removeNthFromEnd = function(head, n) {
-    let next = head.next, count = 1;
+    ListNode.next = head;
+    let next = ListNode.next, count = 0;
     while(next !== null){
         count++;
         next = next.next;
     }
     if(count < n || n <= 0){return head}
-    if(count === 1 && n === 1){return null}
-    let tmp = head;
-    for(let i = 1; i < count - n; i++){
+    let tmp = ListNode;
+    for(let i = 0; i < count - n; i++){
         tmp = tmp.next;
     }
-    if(count === n){
-        tmp.next = null;
-    }else{
-        tmp.next = tmp.next.next;
-    }
-    return head;
+    tmp.next = tmp.next.next;
+    return ListNode.next;
 };
