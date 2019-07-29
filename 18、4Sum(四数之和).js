@@ -29,5 +29,12 @@
  */
 let fourSum = function(nums, target) {
     nums.sort((a, b)=>a-b);
+    const len = nums.length - 1;
+    for(let i = 0; i <= len -2;){
+        let midLe = i+1, mdiRi = len-1, end=len;
+    }
+
 };
 
+let nums = [1, 0, -1, 0, -2, 2];//[ -2, -1, 0, 0, 1, 2 ]
+console.log(nums.sort((a,b)=>a-b));
