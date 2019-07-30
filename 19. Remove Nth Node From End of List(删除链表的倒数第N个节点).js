@@ -43,6 +43,21 @@ let removeNthFromEnd = function(head, n) {
     for(let i = 0; i < count - n; i++){
         tmp = tmp.next;
     }
-    tmp.next = tmp.next.next;
+    tmp.next = tmp.enxt.next;
     return ListNode.next;
 };
+//do this in one pass
+let removeNthFromEnd = function(head, n){
+    ListNode.next = head;
+    let first = ListNode;
+    let second = ListNode;
+    for(let i=0; i<=n+1; i++){
+        first = first.next;
+    }
+    while(first !== null){
+        first = first.next;
+        second = second.next;
+    }
+    second.next = second.next.next;
+    return ListNode.next;
+}
