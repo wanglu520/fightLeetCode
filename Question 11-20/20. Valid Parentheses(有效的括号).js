@@ -45,7 +45,7 @@ Output: true
  * @param {string} s
  * @return {boolean}
  */
-let characters = {
+const characters = {
     '(':")",
     '{':"}",
     '[':"]"
@@ -57,7 +57,7 @@ let isValid = function(s) {
         if(str in characters){
             stack.push(str);
         }else{
-            if(characters[stack.pop()] !== str){
+            if(stack.length === 0 || characters[stack.pop()] !== str){
                 return false;
             }
         }
