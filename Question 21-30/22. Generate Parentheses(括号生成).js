@@ -22,6 +22,20 @@
  * @param {number} n
  * @return {string[]}
  */
-var generateParenthesis = function(n) {
-    
+let generateParenthesis = function(n) {
+    let res = [];
+    if(n === 0){
+        res.push("");
+    }else{
+        for(let c=0; c < n; c++){
+            for(let left of generateParenthesis(c)){
+                for(let right of generateParenthesis(n -1 -c)){
+                    res.push(`(${left})${right}`);
+                }
+            }
+        }
+        
+    }
+    return res;
 };
+console.log(generateParenthesis(3));
