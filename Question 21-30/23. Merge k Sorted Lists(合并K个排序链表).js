@@ -71,14 +71,7 @@ let mergeKLists = function(lists) {
             list = list.next;
         }
     }
-    tmpLists.sort(function(a,b){
-        if(a < b){
-            return -1
-        }else if(a===b){
-            return 0
-        }
-        return 1;
-    });
+    tmpLists.sort((a, b)=>a-b);
     let resl = head = listNode(0);
     for(let val of tmpLists){
         head.next = listNode(val);
