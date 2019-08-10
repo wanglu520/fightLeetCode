@@ -58,3 +58,44 @@ let mergeTwoLists = (l1, l2)=>{
         return l1;
     }
 }
+/**
+ * @param {ListNode[]} lists
+ * @return {ListNode}
+ * 排序
+ */
+let mergeKLists = function(lists) {
+    let tmpLists = [];
+    for(let list of lists){
+        while(list){
+            tmpLists.push(list.val);
+            list = list.next;
+        }
+    }
+    tmpLists.sort(function(a,b){
+        if(a < b){
+            return -1
+        }else if(a===b){
+            return 0
+        }
+        return 1;
+    });
+    let resl = head = listNode(0);
+    for(let val of tmpLists){
+        head.next = listNode(val);
+        head = head.next;
+    }
+    return resl.next;
+}
+let listNode =(val)=>{
+    return {val:val, next:null};
+}
+
+var a = [-1,5,6,10,11]
+console.log(a.sort(function(a,b){
+    if(a < b){
+        return -1
+    }else if(a===b){
+        return 0
+    }
+    return 1;
+}))
