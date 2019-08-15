@@ -83,12 +83,4 @@ let listNode =(val)=>{
     return {val:val, next:null};
 }
 
-var a = [-1,5,6,10,11]
-console.log(a.sort(function(a,b){
-    if(a < b){
-        return -1
-    }else if(a===b){
-        return 0
-    }
-    return 1;
-}))
+
