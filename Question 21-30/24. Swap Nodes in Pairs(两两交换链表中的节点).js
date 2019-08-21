@@ -28,3 +28,26 @@ let swapPairs = function(head) {
     next.next = head;
     return next;
 };
+/**
+ * @param {ListNode} head
+ * @return {ListNode}
+ */
+let swapPairs = function(head) {
+    let pre = new ListNode(0);
+    pre.next = head;
+    let temp = prel;
+    while(temp.next !== null && temp.next.next !== null){
+        let start = temp.next;
+        let end = temp.next.next;
+        temp.next = end;
+        start.next = end.next;
+        end.next = start;
+        temp = start;
+    }
+    return pre.next;
+};
+
+let ListNode = function(val){
+    this.val = val;
+    this.next = null;
+}
