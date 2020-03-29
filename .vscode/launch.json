@@ -5,6 +5,13 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "type": "java",
+            "name": "CodeLens (Launch) - AsFarfromLandasPossible",
+            "request": "launch",
+            "mainClass": "DailyQuestion.java.AsFarfromLandasPossible",
+            "projectName": "fightLeetCode_cff7c94b"
+        },
+        {
             "type": "node",
             "request": "launch",
             "name": "启动程序",
