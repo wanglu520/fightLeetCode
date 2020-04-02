@@ -1,7 +1,7 @@
 package DailyQuestion.java;
 import java.util.Arrays;
 
-class Solution {
+class SortAnArray {
     public int[] sortArray(int[] nums) {
         Arrays.sort(nums);
         return nums;
