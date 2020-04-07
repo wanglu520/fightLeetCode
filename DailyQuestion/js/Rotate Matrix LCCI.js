@@ -18,7 +18,7 @@
 
 let rotate = function(matrix){
     if(matrix.length === 0){
-        return matrix;
+        return;
     }
     let tempMatrix = matrix.concat([]);
     let y = matrix.length;
