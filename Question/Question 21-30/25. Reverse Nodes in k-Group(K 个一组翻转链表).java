@@ -31,6 +31,47 @@ k 是一个正整数，它的值小于或等于链表的长度。
  * @param {number} k
  * @return {ListNode}
  */
-var reverseKGroup = function(head, k) {
-    
-};
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) { val = x; }
+ * }
+ */
+
+class Solution {
+    public ListNode reverseKGroup(ListNode head, int k) {
+        ListNode[] listNode = new ListNode[k];
+        ListNode tempNode = new ListNode(0);
+        tempNode.next = head;
+        int count=0;
+        ListNode partEnd = tempNode;
+        while(head != null){
+            listNode[count] = head;
+            head = head.next;
+            if(++count == k){
+                count = 0;
+                for(int i = listNode.length-1; i >=0; i--){
+                    partEnd.next = listNode[i];
+                    partEnd = partEnd.next;
+                }
+                listNode = new ListNode[k];
+            }
+        }
+        if(listNode.length > 0 ){
+            for (int i = 0; i< listNode.length; i++){
+                if(partEnd != null){
+                    partEnd.next = listNode[i];
+                    partEnd = partEnd.next;
+                } 
+            }
+        }
+        return tempNode.next;
+    }
+    public class ListNode {
+        int val;
+        ListNode next;
+        ListNode(int x) { val = x; }
+    }
+}
