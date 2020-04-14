@@ -8,7 +8,7 @@ import java.util.Map;
 import java.util.PriorityQueue;
 import java.util.Set;
 
-class DesignTwitter {
+class Twitter {
     /**
      * 用户 id 和推文（单链表）的对应关系
      */
@@ -92,7 +92,7 @@ class DesignTwitter {
         if(followings.get(followerId) != null){
             followings.get(followerId).add(followeeId);
         }else {
-            Set<Integer> set = new HashSet();
+            Set<Integer> set = new HashSet<>();
             set.add(followeeId);
             followings.put(followerId,set);
         }
