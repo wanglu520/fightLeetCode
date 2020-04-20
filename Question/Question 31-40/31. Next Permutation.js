@@ -2,7 +2,8 @@
  * @param {number[]} nums
  * @return {void} Do not return anything, modify nums in-place instead.
  */
-var nextPermutation = function(nums) {
+//TODO 还有bug，待修复
+ var nextPermutation = function(nums) {
     let len = nums.length;
     if(nums && len > 0){
         let bool = true;
