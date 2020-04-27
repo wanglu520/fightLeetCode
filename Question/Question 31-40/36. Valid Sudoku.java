@@ -33,4 +33,26 @@ class Solution {
         }
         return true;
     }
+    //使用数组
+    public boolean isValidSudoku1(char[][] board) {
+        int[][] arrX = new int[9][10];
+        int[][] arrY = new int[9][10];
+        int[][] miniSudo = new int[9][10];
+        for(int i=0; i<9; i++){
+            for(int j=0; j<9; j++){
+                if(board[i][j] == '.'){
+                    continue;
+                }
+                int index = board[i][j] - '0';
+                int miniIndex = i/3*3+j/3;
+                if(arrX[i][index] + arrY[j][index] + miniSudo[miniIndex][index] > 0){
+                    return false;
+                }
+                arrX[i][index]++;
+                arrY[j][index]++;
+                miniSudo[miniIndex][index]++;
+            }
+        }
+        return true;
+    }
 }
