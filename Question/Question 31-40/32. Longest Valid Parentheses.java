@@ -1,6 +1,6 @@
 import java.util.Stack;
 
-class aa {
+class aa{
     public int longestValidParentheses(String s) {
         Stack<Integer> stack = new Stack<Integer>();
         stack.add(-1);
