@@ -1,4 +1,7 @@
 package DailyQuestion.java;
+
+import java.util.Arrays;
+
 class Solution {
     //数组排序相邻不相同保留
     public int[] singleNumbers(int[] nums) {
