@@ -17,7 +17,8 @@ var jump = function(nums) {
     }
     return index;
 };
-
+  
 console.log(jump([1,2,3]))
 console.log(jump([2,3,1,1,4]))
+console.log(jump([1,1,1,1]))
 console.log(jump([1,1,1,1]))
