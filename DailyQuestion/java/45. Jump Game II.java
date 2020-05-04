@@ -29,4 +29,19 @@ class Solution {
         }
         return count;
     }
+
+    public int jump1(int[] nums) {
+        int len = nums.length;
+        int maxSteps = 0;
+        int steps = 0;
+        int end = 0;
+        for(int i=0; i< len - 1; i++){
+            maxSteps = Math.max(maxSteps, i + nums[i]);
+            if(i == end){
+                end = maxSteps;
+                steps++;
+            }
+        }
+        return steps;
+    }
 }
