@@ -1,6 +1,14 @@
 package DailyQuestion.java;
+
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
+
 class Solution {
-    //快慢指针
+    private static final String Map = null;
+
+    // 快慢指针
     public int findDuplicate(int[] nums) {
         int fast = 0;
         int slow = 0;
@@ -15,5 +23,16 @@ class Solution {
         }while (fast != slow);
         return fast;
     }
-    
+    //通过哈希表记录  再次出现返回.空间复杂度o（1-n）
+    public int findDuplicate1(int[] nums) {
+        Set<Integer> set = new HashSet<>();
+        for(int num : nums){
+            if(set.contains(num)){
+                return num;
+            }else{
+                set.add(num);
+            }
+        }
+        return -1;
+    }
 }
