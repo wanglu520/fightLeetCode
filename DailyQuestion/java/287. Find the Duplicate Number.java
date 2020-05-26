@@ -15,10 +15,10 @@ class Solution {
             fast = nums[nums[fast]];//fast一次走两步
         }while (fast != slow);
         slow = 0;//找到相遇点 slow从初始重新开始走，快慢现在一次都走一步
-        do{
+        while (fast != slow){
             slow = nums[slow];
             fast = nums[fast];
-        }while (fast != slow);
+        };
         return fast;
     }
     //通过哈希表记录  再次出现返回.空间复杂度o（1-n）
