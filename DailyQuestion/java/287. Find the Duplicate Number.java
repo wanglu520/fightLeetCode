@@ -4,10 +4,9 @@ import java.util.HashSet;
 import java.util.Set;
 
 class Solution {
-    private static final String Map = null;
 
     // 快慢指针
-    public int findDuplicate(int[] nums) {
+    public int findDuplicate(final int[] nums) {
         int fast = 0;
         int slow = 0;
         do{//寻找相遇点
@@ -22,9 +21,9 @@ class Solution {
         return fast;
     }
     //通过哈希表记录  再次出现返回.空间复杂度o（1-n）
-    public int findDuplicate1(int[] nums) {
-        Set<Integer> set = new HashSet<>();
-        for(int num : nums){
+    public int findDuplicate1(final int[] nums) {
+        final Set<Integer> set = new HashSet<>();
+        for(final int num : nums){
             if(set.contains(num)){
                 return num;
             }else{
