@@ -22,7 +22,7 @@ class Solution {
         linkedList.addLast(root);
         listTr.add(linkedList);
         for(int i=0; i<listTr.size(); i++){
-            LinkedList<TreeNode> curTr = listTr.get(i);//获取当前层级接口
+            LinkedList<TreeNode> curTr = listTr.get(i);//获取当前层级节点
             LinkedList<TreeNode> subLink = new LinkedList<>();//装入树的下一层节点
             LinkedList<Integer> curList = new LinkedList<>();//装入当前层级节点的值
             while (!curTr.isEmpty()){
