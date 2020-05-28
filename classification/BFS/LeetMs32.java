@@ -42,7 +42,7 @@ class Solution {
             if(!subLink.isEmpty()){
                 listTr.add(subLink);
             }
-            if(!subList.isEmpty()){
+            if(!curList.isEmpty()){
                 list.add(curList);
             }
         }
