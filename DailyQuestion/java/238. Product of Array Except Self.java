@@ -34,4 +34,23 @@ class Solution {
         }
         return  res;
     }
+    /**
+     * 暴力
+     * 
+     */
+    public int[] productExceptSelf1(int[] nums) {
+        int len = nums.length;
+        int[] res = new int[len];
+        for(int i = 0; i<len; i++){
+            for(int j=0; j<len; j++){
+                if(i==0){
+                    res[j] = i==j ? nums[j] == 0 ? 0 : 1  : nums[i];
+                }else {
+                    res[j] = i==j ? res[j] : res[j]*nums[i];
+                }
+
+            }
+        }
+        return res;
+    }
 }
