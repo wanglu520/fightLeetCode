@@ -35,6 +35,25 @@ class Solution {
         return  res;
     }
     /**
+     * @param nums
+     * @return
+     * 返回数组不记录空间
+     * 空间复杂度为o(1)的 第一次循环通过返回数组保存索引前面的数的积， 第二次通过一个变量每次循环时保存右边的乘积
+     */
+    public int[] productExceptSelf0(int[] nums) {
+        int[] res = new int[nums.length];
+        res[0] = 1;
+        for(int i = 1; i<nums.length; i++){
+            res[i] = res[i-1] * nums[i-1]; 
+        }
+        int r = 1;
+        for(int j = nums.length-1; j>=0; j--){
+            res[j] *= r;
+            r *= nums[j];  
+        }
+        return res;
+    }
+    /**
      * 暴力
      * 
      */
