@@ -1,4 +1,8 @@
 package DailyQuestion.java;
+
+import java.util.Deque;
+import java.util.LinkedList;
+
 class Solution {
     //暴力
     public int[] dailyTemperatures(int[] T) {
@@ -13,6 +17,20 @@ class Solution {
                 }
             }
             res[i] = temp;
+        }
+        return res;
+    }
+    public int[] dailyTemperatures1(int[] T) {
+        int len = T.length;
+        int[] res = new int[len];
+        Deque<Integer> stack = new LinkedList<>();
+        for(int i=0; i<len; i++){
+            int temp = T[i];
+            while(!stack.isEmpty() && temp > T[stack.peek()]){
+                int top = stack.pop();
+                res[top] = i - top;
+            }
+            stack.push(i);
         }
         return res;
     }
