@@ -25,8 +25,7 @@ class Codec {
         while (!que.isEmpty()){
             TreeNode temp  = que.poll();
             if(temp == null){//没有分支的添加字符串null
-                sb.append("null");
-                sb.append(",");
+                sb.append("null,");
             }else {
                 sb.append(temp.val);
                 sb.append(",");
