@@ -27,7 +27,6 @@ class Solution {
     }
     // 优化通过单个字符串排序，把排序后的字符串当做HashMap的key。
     public List<List<String>> groupAnagrams1(String[] strs) {
-        List<List<String>> res = new ArrayList<>();
         Map<String,List<String>> map = new HashMap<>();
         for(String str : strs){
             char[] ch = str.toCharArray();
