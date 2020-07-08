@@ -37,4 +37,28 @@ class Solution {
         }
         return first;
     }
+    //末尾节点连接到头节点，把链表变成环
+    public ListNode rotateRight1(ListNode head, int k) {
+        if(head == null) return null;
+        if(head.next == null) return head;
+        int len;
+        ListNode end = head;
+        for(len = 1; end.next !=null; len++){
+            end = end.next;
+        }
+        if(k >= len){
+            k = k % len;
+        }
+        if(k == 0){
+            return head;
+        }
+        end.next = head;
+        ListNode temp = head;
+        for(int i=0; i<len - k-1; i++){
+            temp = temp.next;
+        }
+        ListNode res = temp.next;
+        temp.next = null;
+        return res;
+    }
 }
