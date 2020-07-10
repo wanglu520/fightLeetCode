@@ -1,4 +1,4 @@
-
+package DailyQuestion.java.July;
 
 class Solution {
     public int maxProfit(int[] prices) {
