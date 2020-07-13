@@ -2,7 +2,9 @@ package DailyQuestion.java.July;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 class Solution {
     //通过哈希表记录其中一个数组数字的出现次数（数字为key，次数为value），
