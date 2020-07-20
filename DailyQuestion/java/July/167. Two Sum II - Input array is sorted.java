@@ -2,6 +2,22 @@ package DailyQuestion.java.July;
 
 
 class Solution {
+    //双指针。一个指向第一个值，另一个指向最后一个值，两个数和大于target，最后一个指针向左移一位；
+    //小于target第一个指针向右移一位；等于直接返回
+    public int[] twoSum2(int[] numbers, int target) {
+        int len = numbers.length;
+        int start = 0, end = len - 1;
+        while (start < end){
+            if(numbers[start] + numbers[end] == target){
+                return new int[]{start+1, end+1};
+            }else if(numbers[start] + numbers[end] > target){
+                end--;
+            }else {
+                start++;
+            }
+        }
+        return new int[]{-1, -1};
+    }
     //暴力解
     public int[] twoSum(int[] numbers, int target) {
         int len = numbers.length;
