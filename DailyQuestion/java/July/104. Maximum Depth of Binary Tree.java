@@ -1,5 +1,8 @@
 package DailyQuestion.java.July;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 import Util.TreeNode;
 
 /**
@@ -26,5 +29,29 @@ class Solution {
     //优化一下递归方法
     public int maxDepth1(TreeNode root) {
         return root == null ? 0 : Math.max(maxDepth1(root.left), maxDepth1(root.right)) + 1;
+    }
+    //广度优化算法，一级节点一级节点的放入列队遍历
+    public int maxDepth2(TreeNode root) {
+        if(root == null){
+            return 0;
+        }
+        Queue<TreeNode> queue  = new LinkedList<>();
+        queue.offer(root);
+        int res = 0;
+        while (!queue.isEmpty()){
+            int size = queue.size();
+            while (size > 0){
+                TreeNode temp = queue.poll();
+                if(temp.left != null){
+                    queue.offer(temp.left);
+                }
+                if(temp.right != null){
+                    queue.offer(temp.right);
+                }
+                size--;
+            }
+            res++;
+        }
+        return res;
     }
 }
