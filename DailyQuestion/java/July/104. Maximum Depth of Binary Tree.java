@@ -40,8 +40,10 @@ class Solution {
         int res = 0;
         while (!queue.isEmpty()){
             int size = queue.size();
+            //遍历一级节点
             while (size > 0){
                 TreeNode temp = queue.poll();
+                //列队放入下一级节点
                 if(temp.left != null){
                     queue.offer(temp.left);
                 }
