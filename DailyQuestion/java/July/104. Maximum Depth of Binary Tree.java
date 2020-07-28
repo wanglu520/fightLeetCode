@@ -23,4 +23,8 @@ class Solution {
         depth++;
         return Math.max(dp(treeNode.left, depth), dp(treeNode.right, depth));
     }
+    //优化一下递归方法
+    public int maxDepth1(TreeNode root) {
+        return root == null ? 0 : Math.max(maxDepth1(root.left), maxDepth1(root.right)) + 1;
+    }
 }
