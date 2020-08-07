@@ -1,3 +1,5 @@
+package DailyQuestion.java.August;
+
 class Solution {
     //字符串从尾部开始遍历，一一相加
     public String addStrings(String num1, String num2) {
