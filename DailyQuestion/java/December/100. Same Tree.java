@@ -1,17 +1,13 @@
+import java.util.LinkedList;
+import java.util.Queue;
+
+import Util.TreeNode;
+
 /**
- * Definition for a binary tree node.
- * public class TreeNode {
- *     int val;
- *     TreeNode left;
- *     TreeNode right;
- *     TreeNode() {}
- *     TreeNode(int val) { this.val = val; }
- *     TreeNode(int val, TreeNode left, TreeNode right) {
- *         this.val = val;
- *         this.left = left;
- *         this.right = right;
- *     }
- * }
+ * Definition for a binary tree node. public class TreeNode { int val; TreeNode
+ * left; TreeNode right; TreeNode() {} TreeNode(int val) { this.val = val; }
+ * TreeNode(int val, TreeNode left, TreeNode right) { this.val = val; this.left
+ * = left; this.right = right; } }
  */
 class Solution {
   public boolean isSameTree(TreeNode p, TreeNode q) {
@@ -53,5 +49,15 @@ class Solution {
       }else{
           return false;
       }
+  }
+  //递归
+  public boolean isSameTree1(TreeNode p, TreeNode q) {
+    if(p == null && q == null){
+      return true;
+    }else if(p != null && q != null){
+      return isSameTree1(p.left, q.left) && isSameTree1(p.right, q.right);
+    }else{
+      return false;
+    }
   }
 }
