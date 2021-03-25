@@ -12,7 +12,7 @@ class Solution {
       if (head == null) {
           return head;
       }
-
+      //把开头当做普通节点处理
       ListNode temp = new ListNode(-1, head);
 
       ListNode cur = temp;
