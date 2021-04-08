@@ -1,5 +1,7 @@
 package DailyQuestion.java.March;
 
+import java.util.Arrays;
+
 class Solution {
   //通过二分搜索
   public int findMin(int[] nums) {
@@ -14,5 +16,10 @@ class Solution {
           }
       }
       return nums[start];
+  }
+  //简单粗暴直接排序
+  public int findMin1(int[] nums) {
+    Arrays.sort(nums);
+    return nums[0];
   }
 }
