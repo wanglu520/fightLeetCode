@@ -23,6 +23,7 @@ class Trie {
           node = node.chrilren[index];
       }
       node.isEnd = true;//到这存在一个完整的单词
+      
   }
 
   /** Returns if the word is in the trie. */
