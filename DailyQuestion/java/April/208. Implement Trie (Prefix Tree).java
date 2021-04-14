@@ -1,3 +1,5 @@
+package DailyQuestion.java.April;
+
 class Trie {
   private Trie[] chrilren;
   private boolean isEnd;
