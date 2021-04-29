@@ -1,6 +1,6 @@
 class Solution {
   private Boolean[][] rec;
-
+    //cv....
   public boolean canCross(int[] stones) {
       int n = stones.length;
       rec = new Boolean[n][n];
