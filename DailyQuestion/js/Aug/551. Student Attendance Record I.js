@@ -20,3 +20,7 @@
   }
   return true;
 };
+
+var checkRecord1 = function(s) {
+  return !s.includes("LLL") && s.indexOf("A") === s.lastIndexOf("A"); 
+};
