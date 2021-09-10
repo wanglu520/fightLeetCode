@@ -17,3 +17,28 @@
       index++;
   }
 };
+//取模然后通过前缀和+二分
+var chalkReplacer = function(chalk, k) {
+  const len = chalk.length;
+  if(chalk[0] > k) return 0;
+  for(let i=1; i<len; i++){
+    chalk[i] += chalk[i-1];
+    if(chalk[i] > k){
+      return i;
+    }
+  }
+  k %= chalk[len-1];
+  return binarysearch(chalk, k);
+};
+const binarysearch = function(arr, k){
+  let left = 0, right = arr.length;
+  while(left <= right){
+    const mid = (right - left)/2|0 + left;
+    if(k >= arr[mid]){
+      left = mid + 1;
+    }else{
+      right = mid - 1;
+    }
+  }
+  return left;
+}
