@@ -75,3 +75,24 @@ var checkValidString = function(s) {
   }
   return arrLeftIndex.length === 0;
 };
+//贪心。。。CV
+//mincount最小为0为了保证“（”前面的*多余的不需要后面的匹配
+var checkValidString = function(s) {
+  let minCount=0, maxCount=0;
+  for(let str of s){
+    if(str === "("){
+      minCount++;
+      maxCount++;
+    }else if(str === ")"){
+      minCount = Math.max(minCount-1, 0);
+      maxCount--;
+      if(maxCount < 0){
+        return false;
+      }
+    }else{
+      minCount = Math.max(minCount - 1, 0);
+      maxCount++;
+    }
+  }
+  return minCount === 0;
+}
