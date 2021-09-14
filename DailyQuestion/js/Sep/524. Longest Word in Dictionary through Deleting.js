@@ -56,3 +56,27 @@ var findLongestWord = function(s, dictionary) {
   }
   return res
 }
+//对dictionary按字符串长度逆序，同时按字典序顺序相同长度字符串。那么匹配到的第一个字符串就是最终的
+var findLongestWord = function(s, dictionary) {
+  dictionary.sort((a, b)=>{
+    if(a.length === b.length){//相同长度按字典序顺序
+      return a.localeCompare(b);
+    }else{//长度倒序
+      return b.length - a.length;
+    }
+  })
+  let i, j;
+  for(let str of dictionary){
+    i = 0, j = 0;
+    while(i < s.length && j < str.length){
+      if(s[i] === str[j]){
+        j++;
+      }
+      i++;
+    }
+    if(j === str.length){
+      return str;
+    }
+  }
+  return "";
+}
